@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="disasm-lib">
+      <UniqueIdentifier>{b41a87fe-2f13-49af-be16-ccd480065d88}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="disasm-lib\cpu.h">
+      <Filter>disasm-lib</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm-lib\disasm.h">
+      <Filter>disasm-lib</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm-lib\disasm_x86.h">
+      <Filter>disasm-lib</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm-lib\disasm_x86_tables.h">
+      <Filter>disasm-lib</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm-lib\mhook.h">
+      <Filter>disasm-lib</Filter>
+    </ClInclude>
+    <ClInclude Include="disasm-lib\misc.h">
+      <Filter>disasm-lib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm-lib\cpu.c">
+      <Filter>disasm-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm-lib\disasm.c">
+      <Filter>disasm-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm-lib\disasm_x86.c">
+      <Filter>disasm-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm-lib\mhook.cpp">
+      <Filter>disasm-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="disasm-lib\misc.c">
+      <Filter>disasm-lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

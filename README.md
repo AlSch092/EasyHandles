@@ -1,11 +1,14 @@
 # EasyHandles
-Use a driver + DLL to directly insert a handle to a target process in our processes' handle table, bypassing KM callbacks/protections. Allows us to attach popular tools such as Cheat Engine to callback-protected processes (EDR, AV, AC, etc)
+A driver + DLL combo which creates a handle from kernelmode to a target usermode process, bypassing kernel-level handle callbacks.
+Allows us to attach popular tools & debuggers such as Cheat Engine to callback-protected processes (EDR, AV, AC, etc). System processes can also be attached to, such as lsass.exe.
 
-## What is this?
+## How does it work?
 
-We use the `ObOpenPointerToObject` call to directly create a handle to a target process. We do this while attaching the kernel driver to the stack of our process, which bypasses any kernel callbacks. ** Note that processes protected by Process Protection Light (PPL) will still likely fail - other tricks are needed to get past this ** 
+We use the `ObOpenPointerToObject` function in kernelmode to create a handle to a target process; we do this while attaching the kernel driver to the stack of our DLL-injectes process, which bypasses any kernelmode callbacks related to handle opening. 
 
-A combination of a DLL + driver are used, along with hooking `OpenProcess`. A request is sent to the driver from the `OpenProcess` hook to ask the driver for a handle from our usermode process.  
+** Note that processes protected by Process Protection Light (PPL) will still likely fail - other tricks are needed to get past this ** 
+
+A DLL is paired with the driver, which hooks `OpenProcess`. A request is sent to the driver from inside the `OpenProcess` hook to ask the driver for a handle to the target process. So, rather than `OpenProcess` going through the traditional pathway from userland to kernelspace's `ZwOpenProcess` and back, we instead send an IOCTL to our driver, and then return the handle which our driver creates instead by using `ObOpenPointerToObject`.    
 
 ## How to use
 

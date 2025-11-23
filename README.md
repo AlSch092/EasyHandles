@@ -30,3 +30,7 @@ A DLL is paired with the driver, which hooks `OpenProcess`. A request is sent to
 Screenshot of attaching Cheat Engine to the `Registry` process, which is normally protected
 
 <img width="1778" height="835" alt="handles" src="https://github.com/user-attachments/assets/9ec157ad-9a69-4203-87e8-b07e9c618ddf" />
+
+## Detection & Prevention:
+
+- Since kernelmode callbacks related to handle openings are not triggered, the handle table for all processes must be walked (in the worst case), and the type of handle + target process must be checked (which is the same way you would check for open process handles in usermode)

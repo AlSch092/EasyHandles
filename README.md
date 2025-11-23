@@ -33,4 +33,4 @@ Screenshot of attaching Cheat Engine to the `Registry` process, which is normall
 
 ## Detection & Prevention:
 
-- Since kernelmode callbacks related to handle openings are not triggered, the handle table for all processes must be walked (in the worst case), and the type of handle + target process must be checked (which is the same way you would check for open process handles in usermode)
+- Since kernelmode callbacks related to handle openings are not triggered, the handle table for all processes must be walked (in the worst case), and the type of handle + target process must be checked (which is the same way you would check for open process handles in usermode). The way this occurs changes whether you're in kernelspace or userland, but both are well-documented.

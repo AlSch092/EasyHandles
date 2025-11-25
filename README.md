@@ -4,7 +4,7 @@ Allows us to attach popular tools & debuggers such as Cheat Engine to callback-p
 
 ## How does it work?
 
-We use the `ObOpenPointerToObject` function in kernelmode to create a handle to a target process; we do this while attaching the kernel driver to the stack of our DLL-injectes process, which bypasses any kernelmode callbacks related to handle opening. 
+We use the `ObOpenPointerToObject` function in kernelmode to create a handle to a target process; we do this while attaching the kernel driver to the stack of our DLL-injected process, which bypasses any kernelmode callbacks related to handle opening. 
 
 ** Note that processes protected by Process Protection Light (PPL) will still likely fail - other tricks are needed to get past this ** 
 
